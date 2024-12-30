@@ -17,7 +17,7 @@ use App\Http\Controllers\AuthManager;
 */
 
 Route::get('/', function () {
-    return redirect()-> route('login');
+    return redirect()-> route('registration');
 });
 
 Route::get('/login',[AuthManager::class, 'login'])->name('login');

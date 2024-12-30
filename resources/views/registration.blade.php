@@ -4,6 +4,11 @@
 @endsection
 @section('konten')
 <div class="container">
+    @if (Session::has('error'))
+        <div class="alert alert-danger">
+            {{ Session::get('error') }}
+        </div>
+    @endif
     <form action="{{route('registration.post')}}" method="POST" class="ms-auto me-auto mt-3" style="width: 500px">
         @csrf
         <div class="mb-3">

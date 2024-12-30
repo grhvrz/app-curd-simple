@@ -6,16 +6,22 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        @auth
-            @if(Route::currentRouteName() !== 'login')
-                <li class="nav-item">
+    @auth
+        @if(!in_array(Route::currentRouteName(), ['login', 'register']))
+            <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{{route('produk.index')}}">Home</a>
-                </li>
-                <li class="nav-item">
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{route('logout')}}">LogOut</a>
-                </li>
-            @endif
-        @endauth
+            </li>
+        @endif
+    @else
+        @if(Route::currentRouteName() !== 'login')
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{route('login')}}">Login</a>
+            </li>
+        @endif
+    @endauth    
     </ul>
     <span class="navbar-text">
         Toko Terbaik Di Alam Semesta
